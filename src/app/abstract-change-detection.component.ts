@@ -112,7 +112,7 @@ export abstract class AbstractChangeDetectionComponent implements AfterViewInit,
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
-    if (changes.inputObservable) {
+    if (changes['inputObservable']) {
       this._destroyInputObservable$.next();
       this.inputObservable
           .pipe(takeUntilDestroyed(this.destroyRef), takeUntil(this._destroyInputObservable$))
